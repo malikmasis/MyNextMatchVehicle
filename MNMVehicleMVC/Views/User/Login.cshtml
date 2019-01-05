@@ -1,0 +1,47 @@
+﻿@model MNMVehicleMVC.Model.User
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+<!DOCTYPE html>
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+<link href="~/css/style.css" rel="stylesheet" />
+
+<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            @using (Html.BeginForm("Login", "User", FormMethod.Post))
+            {
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 groupInput">
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 nopaddingleft">
+                        <label asp-for="Name"></label>
+                    </div>
+                    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 nopadding">
+                        <input class="form-control" asp-for="Name" />
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 groupInput">
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 nopaddingleft">
+                        <label asp-for="Password"></label>
+
+                    </div>
+                    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 nopadding">
+                        <input class="form-control" asp-for="Password" />
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right">
+                    <button type="submit" class="btn btn-primary">Gönder</button>
+                </div>
+            }
+        </div>
+    </div>
+</body>
+</html>

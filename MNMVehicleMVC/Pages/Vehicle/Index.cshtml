@@ -1,0 +1,160 @@
+﻿@page
+@model MNMVehicleMVC.Pages.Vehicle.IndexModel
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+@using MNMVehicleMVC.Model;
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+<link href="~/css/style.css" rel="stylesheet" />
+
+<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 infoBox">
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 title">
+                        <strong>
+                            <label asp-for="Vehicle.Plate"></label>
+                        </strong>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 title">
+                        <strong>
+                            <label asp-for="Vehicle.Nickname"></label>
+                        </strong>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 title">
+                        <strong>
+                            <label asp-for="Vehicle.Brand"></label>
+                        </strong>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 title">
+                        <strong>
+                            <label asp-for="Vehicle.Model"></label>
+                        </strong>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 title">
+                        <strong>
+                            <label asp-for="Vehicle.ModelYear"></label>
+                        </strong>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 title">
+                        <strong>
+                            <label asp-for="Vehicle.Color"></label>
+                        </strong>
+                    </div>
+                    @foreach (var item in Model.VehicleList)
+                    {
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 product">
+                            @item.Plate
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 product">
+                            @item.Nickname
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 product">
+                            @item.Brand
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 product">
+                            @item.Model
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 product">
+                            @item.ModelYear
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 product">
+                            @item.Color
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <form method="post">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 groupInput">
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 nopaddingleft">
+                        <label asp-for="Vehicle.Plate"></label>
+
+                    </div>
+                    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 nopadding">
+                        <input class="form-control" asp-for="Vehicle.Plate" />
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 groupInput">
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 nopaddingleft">
+                        <label asp-for="Vehicle.Nickname"></label>
+
+                    </div>
+                    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 nopadding">
+                        <input class="form-control" asp-for="Vehicle.Nickname" />
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 groupInput">
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 nopaddingleft">
+                        <label asp-for="Vehicle.Brand"></label>
+
+                    </div>
+                    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 nopadding">
+                        <input class="form-control" asp-for="Vehicle.Brand" />
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 groupInput">
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 nopaddingleft">
+                        <label asp-for="Vehicle.Model"></label>
+
+                    </div>
+                    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 nopadding">
+                        <input class="form-control" asp-for="Vehicle.Model" />
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 groupInput">
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 nopaddingleft">
+                        <label asp-for="Vehicle.ModelYear"></label>
+
+                    </div>
+                    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 nopadding">
+                        <input class="form-control" asp-for="Vehicle.ModelYear" />
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 groupInput">
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 nopaddingleft">
+                        <label asp-for="Vehicle.VehicleType"></label>
+                    </div>
+                    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 nopadding">
+                        <select class="form-control" asp-for="Vehicle.VehicleType" asp-items="Html.GetEnumSelectList<MNMVehicleMVC.Model.VehicleType>()">
+                            <option selected="selected" value="">Lütfen Seçiniz</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 groupInput">
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 nopaddingleft">
+                        <label asp-for="Vehicle.Color"></label>
+
+                    </div>
+                    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 nopadding">
+                        <input class="form-control" asp-for="Vehicle.Color" />
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 groupInput">
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 nopaddingleft">
+                        <label asp-for="Vehicle.IsActive"></label>
+
+                    </div>
+                    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 nopadding">
+                        <input class="form-control" asp-for="Vehicle.IsActive" />
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right">
+                    <button type="submit" class="btn btn-primary">Gönder</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

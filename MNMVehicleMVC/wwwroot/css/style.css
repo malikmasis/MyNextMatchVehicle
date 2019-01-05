@@ -1,0 +1,29 @@
+﻿body,html{
+    height:100%;
+}
+.product{
+   line-height:25px;
+}
+.product:nth-child(2n) {
+   background:#d5e7f6;
+}
+.nopadding{
+    padding:0px;
+}
+.nopaddingleft{
+    padding-left:0px;
+}
+.infoBox{
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    margin: 20px 0px;
+    padding:0px;
+}
+.title{
+    text-align:center;
+    line-height:30px;
+}
+.groupInput{
+    margin-bottom:10px;
+    float: left;
+}

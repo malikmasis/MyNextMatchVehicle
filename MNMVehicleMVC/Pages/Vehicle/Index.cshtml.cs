@@ -43,16 +43,15 @@ namespace MNMVehicleMVC.Pages.Vehicle
 
         [BindProperty]
         public Model.Vehicle Vehicle { get; set; }
-        public IActionResult OnPost()
+        public async Task<IActionResult> OnPost()
         {
-            //using (var db = new postgresContext())
-            //{
-            //    VehiclesController vehicle = new VehiclesController(db);
-            //    vehicle.PostVehicle(Vehicle);
+            using (var db = new postgresContext())
+            {
+                VehiclesController vehicle = new VehiclesController(db);
+                await vehicle.PostVehicle(Vehicle);
 
-            //    return RedirectToPage("/Vehicle/Index");
-            //}
-            return null;
+                return RedirectToPage("/Vehicle/Index");
+            }
         }
     }
 }

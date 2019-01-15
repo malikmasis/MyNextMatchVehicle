@@ -17,16 +17,23 @@ namespace MNMVehicleMVC.Controllers
         }
 
         [HttpPost]
-        public IActionResult Login(IFormCollection form)
+        public IActionResult Login(User user)
         {
-            User user = new User();
             using (var db = new postgresContext())
             {
-                user = db.User.AsEnumerable()
-                    .Where(p=>p.Name == form["Name"]  && p.Password == form["Password"]).FirstOrDefault();
-                if(user != null)
+                if (ModelState.IsValid)
                 {
-                    return RedirectToAction("Index","Vehicle");
+                    user = db.User.AsEnumerable()
+                    .Where(p => p.Name == user.Name && p.Password == user.Password).FirstOrDefault();
+                    if (user != null)
+                    {
+                        return RedirectToAction("Index", "Vehicle");
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, "Bilgilerinizi Kontrol Edin.");
+                    return View(user);
                 }
             }
 

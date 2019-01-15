@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MNMVehicleMVC.Data;
@@ -8,6 +9,7 @@ using MNMVehicleMVC.Model;
 
 namespace MNMVehicleMVC.API.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class UsersController : ControllerBase
@@ -17,6 +19,13 @@ namespace MNMVehicleMVC.API.Controllers
         public UsersController(postgresContext context)
         {
             _context = context;
+        }
+
+
+        [HttpGet]
+        public IEnumerable<string> Get()
+        {
+            return new string[] { "value1", "value2" };
         }
 
         // GET: api/User

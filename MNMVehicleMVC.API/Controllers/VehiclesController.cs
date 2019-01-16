@@ -21,7 +21,7 @@ namespace MNMVehicleMVC.API.Controllers
 
         // GET: api/Vehicles
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Vehicle>>> GetVehicle()
+        public async Task<IEnumerable<Vehicle>> GetVehicle()
         {
             return await _context.Vehicle.ToListAsync();
         }

@@ -1,7 +1,14 @@
-﻿@{
+﻿@model IEnumerable<MNMVehicleMVC.Model.Vehicle>
+
+@{
     ViewData["Title"] = "About";
+}
+
+@foreach (var item in Model.ToList())
+{
+    <div>@item.Brand</div>
+    <div>@item.Model</div>
 }
 <h2>@ViewData["Title"]</h2>
 <h3>@ViewData["Message"]</h3>
-
 <p>Use this area to provide additional information.</p>

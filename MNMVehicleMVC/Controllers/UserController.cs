@@ -1,7 +1,10 @@
-﻿using System.Diagnostics;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MNMVehicleMVC.API.Controllers;
 using MNMVehicleMVC.Data;
 using MNMVehicleMVC.Model;
 using MNMVehicleMVC.Models;
@@ -54,6 +57,21 @@ namespace MNMVehicleMVC.Controllers
             return View(newItem);
         }
 
+        public IEnumerable<Vehicle> VehicleList { get; set; }
+        public async Task<IActionResult> About()
+        {
+
+            using (var db = new postgresContext())
+            {
+                //Tood IVehicle
+
+
+                VehiclesController vehicle = new VehiclesController(db);
+                    var he = await vehicle.GetVehicle();
+                VehicleList = he;
+            }
+            return View(VehicleList);
+        }
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });

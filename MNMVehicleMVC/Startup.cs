@@ -24,20 +24,20 @@ namespace MNMVehicleMVC
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-   .AddJwtBearer(jwtBearerOptions =>
-   {
-       jwtBearerOptions.TokenValidationParameters = new TokenValidationParameters()
-       {
-           ValidateActor = true,
-           ValidateAudience = true,
-           ValidateLifetime = true,
-           ValidateIssuerSigningKey = true,
-           ValidIssuer = Configuration["Issuer"],
-           ValidAudience = Configuration["Audience"],
-           IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["SigningKey"]))
-       };
-   });
+   //         services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+   //.AddJwtBearer(jwtBearerOptions =>
+   //{
+   //    jwtBearerOptions.TokenValidationParameters = new TokenValidationParameters()
+   //    {
+   //        ValidateActor = true,
+   //        ValidateAudience = true,
+   //        ValidateLifetime = true,
+   //        ValidateIssuerSigningKey = true,
+   //        ValidIssuer = Configuration["Issuer"],
+   //        ValidAudience = Configuration["Audience"],
+   //        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["SigningKey"]))
+   //    };
+   //});
 
             services.AddMvc();
             services.AddScoped<Business.Services.ILogger, Log4Net>();

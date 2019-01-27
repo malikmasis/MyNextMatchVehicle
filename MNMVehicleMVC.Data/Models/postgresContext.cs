@@ -5,11 +5,10 @@ using System.IO;
 
 namespace MNMVehicleMVC.Data
 {
-    public class postgresContext : DbContext
+    public class postgresContext : DbContext,IStoreAppContext
     {
-        public DbSet<User> User { get; set; }
-        public DbSet<Vehicle> Vehicle { get; set; }
-        
+        public DbSet<User> User { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+        public DbSet<Vehicle> Vehicle { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
         public postgresContext(DbContextOptions<postgresContext> options)
             : base(options)

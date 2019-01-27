@@ -44,31 +44,26 @@ namespace MNMVehicleMVC.Controllers
         }
         public IActionResult Contact()
         {
-            var newItem = new User();
+            var user = new User();
 
-            //using (var db = new postgresContext())
-            //{
-            //    // Creating a new item and saving it to the database
-            //    newItem.Name = "Malik";
-            //    newItem.SurName = "Chanbaz";
-            //    db.User.Add(newItem);
-            //    var count = db.SaveChanges();
-            //}
-            return View(newItem);
+            using (var db = new postgresContext())
+            {
+                user.Name = "Malik";
+                user.SurName = "Chanbaz";
+                db.User.Add(user);
+                var count = db.SaveChanges();
+            }
+            return View(user);
         }
 
         public IEnumerable<Vehicle> VehicleList { get; set; }
         public async Task<IActionResult> About()
         {
-
             using (var db = new postgresContext())
             {
                 //Tood IVehicle
-
-
                 VehiclesController vehicle = new VehiclesController(db);
-                    var he = await vehicle.GetVehicle();
-                VehicleList = he;
+                VehicleList = await vehicle.GetVehicle();
             }
             return View(VehicleList);
         }
